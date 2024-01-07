@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { ChangeEvent, useState } from 'react'
 import './App.css'
+import Posts from './components/Posts'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [value, setValue] = useState('')
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value)
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container mx-auto text-center">
+        <h1 className='text-5xl p-4'>My Clone</h1>
+        <form>
+          <input
+            type='text'
+            value={value}
+            placeholder='Ask here...'
+            onChange={(e) => {handleChange(e)}}
+            className='border border-solid border-gray-400 p-2'
+          />
+          <button
+            type='submit'
+            className="bg-blue-400 border border-solid border-gray-400 p-2"
+          >
+            送信
+          </button>
+        </form>
+        <Posts />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
