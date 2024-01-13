@@ -15,7 +15,6 @@ const Show = () => {
   const handleGetDetailPost = async (query:any) => {
     try {
       const res = await getDetailPost(query.id);
-      console.log(res.data);
       setPost({
         id: res.data.id,
         title: res.data.title,
