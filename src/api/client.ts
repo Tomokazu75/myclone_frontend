@@ -7,7 +7,7 @@ const options = {
 
 const client = applyCaseMiddleware(
   axios.create({
-    baseURL: "http://localhost:3001/api/v1",
+    baseURL: "https://backend-myclone-postgresql.fly.dev",
   }),
   options
 );
